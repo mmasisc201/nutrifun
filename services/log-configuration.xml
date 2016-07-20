@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://logging.apache.org/log4php/">
+    <appender name="daoAppender" class="LoggerAppenderFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date [%level][%logger] %message%newline" />
+        </layout>
+        <param name="file" value="../resources/logger/dao.log" />
+        <param name="append" value="true" />
+    </appender>
+    <appender name="serviceAppender" class="LoggerAppenderFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date [%level][%logger] %message%newline" />
+        </layout>
+        <param name="file" value="../resources/logger/service.log" />
+        <param name="append" value="true" />
+    </appender>
+    <appender name="helperAppender" class="LoggerAppenderFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date [%level][%logger] %message%newline" />
+        </layout>
+        <param name="file" value="../resources/logger/helper.log" />
+        <param name="append" value="true" />
+    </appender>
+    <appender name="defaultAppender" class="LoggerAppenderFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date [%logger] %message%newline" />
+        </layout>
+        <param name="file" value="../resources/logger/default.log" />
+        <param name="append" value="true" />
+    </appender>
+    <appender name="default" class="LoggerAppenderFile">
+        <layout class="LoggerLayoutSimple"/>
+        <param name="file" value="../resources/logger/default.log" />
+        <param name="append" value="true" />
+    </appender>
+    <logger name="DAOLogger">
+        <appender_ref ref="daoAppender" />
+    </logger>
+    <logger name="ServiceLogger">
+        <appender_ref ref="serviceAppender" />
+    </logger>
+    <logger name="HelperLogger">
+        <appender_ref ref="helperAppender" />
+    </logger>
+    <logger name="DefaultLogger">
+        <appender_ref ref="defaultAppender" />
+    </logger>
+</configuration>

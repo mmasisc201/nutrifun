@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dao>
+	<queries name="userQueries">
+		<query name="addUser">
+			INSERT INTO nutf_user 
+				(name, lastname, email, password, username) 
+			VALUES
+				(:name, :lastname, :email, :password, :username)
+		</query>
+		<query name="login">
+			SELECT 	id_user, name, lastname, email, username
+		 	FROM 	nutf_user
+		 	WHERE 	(username=:username OR email=:email) AND password=:pwd 
+		</query>
+		<query name="getUser">
+			SELECT 	id_user, name, lastname, email, username
+		 	FROM 	nutf_user
+		 	WHERE 	id_user=:idUser
+		</query>
+		<query name="getUserByUserName">
+			SELECT 	id_user, name, lastname, email, username
+	    	FROM 	nutf_user
+			WHERE 	username =:username
+		</query>
+		<query name="getUserByEmail">
+			SELECT 	id_user, name, lastname, email, username
+		  	FROM 	nutf_user
+		  	WHERE 	email =:email
+		</query>
+	</queries>
+	<queries name="recipeQueries">
+		<query name="addRecipe">
+			INSERT INTO nutf_recipe 
+				(description) 
+			VALUES
+				(:description)
+		</query>
+	</queries>
+	<queries name="componentQueries">
+		<query name="getComponents">
+			SELECT 	id_component, description, id_category, id_unit FROM nutf_component
+		</query>
+				<query name="getComponentsByDescription">
+			SELECT 	id_component, description, id_category, id_unit FROM nutf_component WHERE description LIKE :description
+		</query>
+	</queries>
+</dao>
